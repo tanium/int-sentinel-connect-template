@@ -1,0 +1,638 @@
+[
+  {
+    "name": "Native Sentinel SCCM Health",
+    "description": null,
+    "minimumPassPercentage": 0,
+    "logLevel": 30,
+    "tempLogLevel": 30,
+    "tempLogLevelRuns": 0,
+    "schedule": "00 13 * * *",
+    "scheduleTimeZone": "UTC",
+    "moduleCallbackUri": null,
+    "maxOldSpaceSize": 1,
+    "streams": [
+      {
+        "route": "/v1/sources/savedquestions",
+        "arguments": {
+          "sortColumns": "[]",
+          "savedQuestionName": "Sentinel - SCCM Client Health",
+          "contextGroupName": "No Filter",
+          "percentComplete": 0,
+          "batchSize": 1000,
+          "hideErrors": true,
+          "hideNoResults": true,
+          "excludePolling": false,
+          "flatten": false,
+          "mostRecent": true,
+          "resolveErrors": false,
+          "timeout": 10,
+          "recentResultBuckets": "600,3600,86400,604800",
+          "filterString": "",
+          "maxRows": -1,
+          "includeOtherRow": false
+        }
+      },
+      {
+        "route": "/v1/formats/stringifies",
+        "arguments": {
+          "surroundWithSource": false,
+          "enhancedJson": false,
+          "rowSeparator": "\\r\\n",
+          "valueEscape": "",
+          "valueEscapeReplace": "",
+          "generateDocument": true
+        }
+      },
+      {
+        "route": "/v1/destinations/loganalytics-destination",
+        "arguments": {
+          "name": "Native Sentinel - SCCM Health",
+          "destinationType": "loganalytics",
+          "customerId": "changeme_workspaceid",
+          "tableName": "TaniumSCCMClientHealth",
+          "useProxy": false,
+          "connectionTimeout": 10,
+          "batchSize": 200,
+          "sharedKey": "changeme_primarykey"
+        }
+      }
+    ],
+    "destinationType": "loganalytics"
+  },
+  {
+    "name": "Native Sentinel Defender Health",
+    "description": null,
+    "minimumPassPercentage": 0,
+    "logLevel": 30,
+    "tempLogLevel": 30,
+    "tempLogLevelRuns": 0,
+    "schedule": "00 15 * * *",
+    "scheduleTimeZone": "UTC",
+    "moduleCallbackUri": null,
+    "maxOldSpaceSize": 1,
+    "streams": [
+      {
+        "route": "/v1/sources/savedquestions",
+        "arguments": {
+          "sortColumns": "[]",
+          "savedQuestionName": "Sentinel - Defender Version and Health",
+          "contextGroupName": "No Filter",
+          "percentComplete": 0,
+          "batchSize": 1000,
+          "hideErrors": true,
+          "hideNoResults": true,
+          "excludePolling": false,
+          "flatten": false,
+          "mostRecent": true,
+          "resolveErrors": false,
+          "timeout": 10,
+          "recentResultBuckets": "600,3600,86400,604800",
+          "filterString": "",
+          "maxRows": -1,
+          "includeOtherRow": false
+        }
+      },
+      {
+        "route": "/v1/formats/stringifies",
+        "arguments": {
+          "surroundWithSource": false,
+          "enhancedJson": false,
+          "rowSeparator": "\\r\\n",
+          "valueEscape": "",
+          "valueEscapeReplace": "",
+          "generateDocument": true
+        }
+      },
+      {
+        "route": "/v1/destinations/loganalytics-destination",
+        "arguments": {
+          "name": "Native Sentinel - Defender Health",
+          "destinationType": "loganalytics",
+          "customerId": "changeme_workspaceid",
+          "tableName": "TaniumDefenderHealth",
+          "useProxy": false,
+          "connectionTimeout": 10,
+          "batchSize": 200,
+          "sharedKey": "changeme_primarykey"
+        }
+      }
+    ],
+    "destinationType": "loganalytics"
+  },
+  {
+    "name": "Native Sentinel Main Asset",
+    "description": null,
+    "minimumPassPercentage": 0,
+    "logLevel": 30,
+    "tempLogLevel": 30,
+    "tempLogLevelRuns": 0,
+    "schedule": "00 13 * * *",
+    "scheduleTimeZone": "UTC",
+    "moduleCallbackUri": null,
+    "maxOldSpaceSize": 1,
+    "streams": [
+      {
+        "route": "/v1/sources/savedquestions",
+        "arguments": {
+          "sortColumns": "[]",
+          "savedQuestionName": "Sentinel - Main Asset",
+          "contextGroupName": "No Filter",
+          "percentComplete": 0,
+          "batchSize": 1000,
+          "hideErrors": true,
+          "hideNoResults": true,
+          "excludePolling": false,
+          "flatten": false,
+          "mostRecent": true,
+          "resolveErrors": false,
+          "timeout": 10,
+          "recentResultBuckets": "600,3600,86400,604800",
+          "filterString": "",
+          "maxRows": -1,
+          "includeOtherRow": false
+        }
+      },
+      {
+        "route": "/v1/formats/columns",
+        "arguments": {
+          "columns": [
+            {
+              "name": "Computer Name",
+              "renameTo": "Computer Name",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Computer ID",
+              "renameTo": "Computer ID",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Asset System UUID",
+              "renameTo": "Asset System UUID",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Username",
+              "renameTo": "Username",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Asset OS Platform",
+              "renameTo": "Asset OS Platform",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Asset Operating System",
+              "renameTo": "Asset Operating System",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Asset Service Pack",
+              "renameTo": "Asset Service Pack",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Asset Chassis Type",
+              "renameTo": "Asset Chassis Type",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Asset Manufacturer",
+              "renameTo": "Asset Manufacturer",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Asset Model",
+              "renameTo": "Asset Model",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Asset Computer Serial Number",
+              "renameTo": "Asset Computer Serial Number",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Asset IP Address",
+              "renameTo": "Asset IP Address",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Asset Domain Name",
+              "renameTo": "Asset Domain Name",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Count",
+              "renameTo": "Count",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Age",
+              "renameTo": "Age",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Band Number",
+              "renameTo": "Band Number",
+              "type": null,
+              "value": null,
+              "hint": "added during connection run",
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            }
+          ]
+        }
+      },
+      {
+        "route": "/v1/formats/stringifies",
+        "arguments": {
+          "surroundWithSource": false,
+          "enhancedJson": false,
+          "rowSeparator": "\\r\\n",
+          "valueEscape": "",
+          "valueEscapeReplace": "",
+          "generateDocument": true
+        }
+      },
+      {
+        "route": "/v1/destinations/loganalytics-destination",
+        "arguments": {
+          "name": "Native Sentinel - Main Asset",
+          "destinationType": "loganalytics",
+          "customerId": "changeme_workspaceid",
+          "tableName": "TaniumMainAsset",
+          "useProxy": false,
+          "connectionTimeout": 10,
+          "batchSize": 200,
+          "sharedKey": "changeme_primarykey"
+        }
+      }
+    ],
+    "destinationType": "loganalytics"
+  },
+  {
+    "name": "Native Sentinel Threat Response Alerts",
+    "description": null,
+    "minimumPassPercentage": 0,
+    "logLevel": 30,
+    "tempLogLevel": 30,
+    "tempLogLevelRuns": 0,
+    "schedule": "0 * * * *",
+    "scheduleTimeZone": "UTC",
+    "moduleCallbackUri": null,
+    "maxOldSpaceSize": 1,
+    "streams": [
+      {
+        "route": "/v1/sources/events",
+        "arguments": {
+          "events": [
+            "Match Alerts Raw"
+          ],
+          "source": "Tanium Detect"
+        }
+      },
+      {
+        "route": "/v1/formats/stringifies",
+        "arguments": {
+          "surroundWithSource": false,
+          "enhancedJson": false,
+          "rowSeparator": "\\r\\n",
+          "valueEscape": "",
+          "valueEscapeReplace": "",
+          "generateDocument": true
+        }
+      },
+      {
+        "route": "/v1/destinations/loganalytics-destination",
+        "arguments": {
+          "name": "Native Sentinel - Threat Response",
+          "destinationType": "loganalytics",
+          "customerId": "changeme_workspaceid",
+          "tableName": "TaniumThreatResponse",
+          "useProxy": false,
+          "connectionTimeout": 10,
+          "batchSize": 200,
+          "sharedKey": "changeme_primarykey"
+        }
+      }
+    ],
+    "destinationType": "loganalytics"
+  },
+  {
+    "name": "Native Sentinel Comply Vulnerabilities ",
+    "description": null,
+    "minimumPassPercentage": 0,
+    "logLevel": 30,
+    "tempLogLevel": 30,
+    "tempLogLevelRuns": 0,
+    "schedule": "00 12 * * *",
+    "scheduleTimeZone": "UTC",
+    "moduleCallbackUri": null,
+    "maxOldSpaceSize": 1,
+    "streams": [
+      {
+        "route": "/v1/sources/pluginConfigurations/comply/findings-source",
+        "arguments": {
+          "config": {
+            "type": "Vulnerability",
+            "filterGroup": "None",
+            "reportName": "None",
+            "queryTimeoutSeconds": 120,
+            "batchSize": 5000,
+            "cveCacheSize": 100
+          },
+          "module": "comply",
+          "plugin": "findings-source",
+          "type": "sources",
+          "destinationType": "pluginConfigurations",
+          "name": "comply-findings-source-1652986113859-77"
+        }
+      },
+      {
+        "route": "/v1/formats/stringifies",
+        "arguments": {
+          "surroundWithSource": false,
+          "enhancedJson": false,
+          "rowSeparator": "\\r\\n",
+          "valueEscape": "",
+          "valueEscapeReplace": "",
+          "generateDocument": true
+        }
+      },
+      {
+        "route": "/v1/destinations/loganalytics-destination",
+        "arguments": {
+          "name": "Native Sentinel - Comply Vulnerabilities",
+          "destinationType": "loganalytics",
+          "customerId": "changeme_workspaceid",
+          "tableName": "TaniumComplyVulnerabilities",
+          "useProxy": false,
+          "connectionTimeout": 10,
+          "batchSize": 200,
+          "sharedKey": "changeme_primarykey"
+        }
+      }
+    ],
+    "destinationType": "loganalytics"
+  },
+  {
+    "name": "Native Sentinel Comply Local Compliance ",
+    "description": null,
+    "minimumPassPercentage": 0,
+    "logLevel": 30,
+    "tempLogLevel": 30,
+    "tempLogLevelRuns": 0,
+    "schedule": "00 12 * * *",
+    "scheduleTimeZone": "UTC",
+    "moduleCallbackUri": null,
+    "maxOldSpaceSize": 1,
+    "streams": [
+      {
+        "route": "/v1/sources/pluginConfigurations/comply/findings-source",
+        "arguments": {
+          "config": {
+            "type": "Compliance",
+            "filterGroup": "None",
+            "reportName": "None",
+            "queryTimeoutSeconds": 120,
+            "percentComplete": 95,
+            "batchSize": 5000,
+            "cveCacheSize": 100
+          },
+          "module": "comply",
+          "plugin": "findings-source",
+          "type": "sources",
+          "destinationType": "pluginConfigurations",
+          "name": "comply-findings-source-1652986113769-81"
+        }
+      },
+      {
+        "route": "/v1/formats/stringifies",
+        "arguments": {
+          "surroundWithSource": false,
+          "enhancedJson": false,
+          "rowSeparator": "\\r\\n",
+          "valueEscape": "",
+          "valueEscapeReplace": "",
+          "generateDocument": true
+        }
+      },
+      {
+        "route": "/v1/destinations/loganalytics-destination",
+        "arguments": {
+          "name": "Native Sentinel - Comply Local Compliance",
+          "destinationType": "loganalytics",
+          "customerId": "changeme_workspaceid",
+          "tableName": "TaniumComplyCompliance",
+          "useProxy": false,
+          "connectionTimeout": 10,
+          "batchSize": 200,
+          "sharedKey": "changeme_primarykey"
+        }
+      }
+    ],
+    "destinationType": "loganalytics"
+  },
+  {
+    "name": "Native Sentinel Discover Unmanaged Assets",
+    "description": null,
+    "minimumPassPercentage": 0,
+    "logLevel": 30,
+    "tempLogLevel": 30,
+    "tempLogLevelRuns": 0,
+    "schedule": "00 12 * * *",
+    "scheduleTimeZone": "UTC",
+    "moduleCallbackUri": null,
+    "maxOldSpaceSize": 1,
+    "streams": [
+      {
+        "route": "/v1/sources/pluginConfigurations/discover/interface-source",
+        "arguments": {
+          "config": {
+            "report": "Unmanaged"
+          },
+          "module": "discover",
+          "plugin": "interface-source",
+          "type": "sources",
+          "destinationType": "pluginConfigurations",
+          "name": "discover-interface-source-1652986113693-72"
+        }
+      },
+      {
+        "route": "/v1/formats/stringifies",
+        "arguments": {
+          "surroundWithSource": false,
+          "enhancedJson": false,
+          "rowSeparator": "\\r\\n",
+          "valueEscape": "",
+          "valueEscapeReplace": "",
+          "generateDocument": true
+        }
+      },
+      {
+        "route": "/v1/destinations/loganalytics-destination",
+        "arguments": {
+          "name": "Native Sentinel - Discover Unmanaged Assets",
+          "destinationType": "loganalytics",
+          "customerId": "changeme_workspaceid",
+          "tableName": "TaniumDiscoverUnmanagedAssets",
+          "useProxy": false,
+          "connectionTimeout": 10,
+          "batchSize": 200,
+          "sharedKey": "changeme_primarykey"
+        }
+      }
+    ],
+    "destinationType": "loganalytics"
+  },
+  {
+    "name": "Native Sentinel Comply Remote Vulnerability",
+    "description": null,
+    "minimumPassPercentage": 0,
+    "logLevel": 30,
+    "tempLogLevel": 30,
+    "tempLogLevelRuns": 0,
+    "schedule": "00 12 * * *",
+    "scheduleTimeZone": "UTC",
+    "moduleCallbackUri": null,
+    "maxOldSpaceSize": 1,
+    "streams": [
+      {
+        "route": "/v1/sources/pluginConfigurations/comply/findings-source",
+        "arguments": {
+          "config": {
+            "type": "Remote Vulnerability",
+            "filterGroup": "None",
+            "reportName": "None",
+            "queryTimeoutSeconds": 120,
+            "percentComplete": 95,
+            "batchSize": 5000,
+            "cveCacheSize": 100
+          },
+          "module": "comply",
+          "plugin": "findings-source",
+          "type": "sources",
+          "destinationType": "pluginConfigurations",
+          "name": "comply-findings-source-1652986113619-82"
+        }
+      },
+      {
+        "route": "/v1/formats/stringifies",
+        "arguments": {
+          "surroundWithSource": false,
+          "enhancedJson": false,
+          "rowSeparator": "\\r\\n",
+          "valueEscape": "",
+          "valueEscapeReplace": "",
+          "generateDocument": true
+        }
+      },
+      {
+        "route": "/v1/destinations/loganalytics-destination",
+        "arguments": {
+          "name": "Native Sentinel - Comply Vulnerabilities Remote",
+          "destinationType": "loganalytics",
+          "customerId": "changeme_workspaceid",
+          "tableName": "TaniumComplyVulnerabilitiesRemote",
+          "useProxy": false,
+          "connectionTimeout": 10,
+          "batchSize": 200,
+          "sharedKey": "changeme_primarykey"
+        }
+      }
+    ],
+    "destinationType": "loganalytics"
+  }
+]
